@@ -16,11 +16,12 @@ html {
     vertical-align: top;
 }
 
+
 .mobster {
-	color: white;
+	color: black;
 	padding: 1%;
 	display: inline-block;
-	background: teal;
+	background-image: url("http://stockfresh.com/files/r/rcarner/m/14/1057410_stock-photo-old-looking-paper-for-a-grungy-background.jpg");
 	width: 30%;
 	vertical-align: top;
 	margin: 1%;
@@ -30,4 +31,11 @@ html {
 .ul {
 	width: 100%;
 	display: inline-block;
+}
+
+.inputContainer {
+	border: 1px solid black;
+	position: absolute;
+	left: 50%;
+
 }

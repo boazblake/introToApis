@@ -1,12 +1,22 @@
-// console.log($)
+console.log($)
 
 var apiKey = '9e606f2776ec4ff09ffc5daf55cc385b'
 
-var baseUrl  = 'https://congress.api.sunlightfoundation.com/legislators?apikey='
+var baseUrl  = 'https://congress.api.sunlightfoundation.com//legislators/locate?'
+
+var numberOfZip = 77074
+var numberZip = 'zip=' + parseInt(numberOfZip)
+var zip = numberZip+'&apikey='
 
 var fullUrl = baseUrl + apiKey
+var zipUrl =  baseUrl + zip + apiKey 
 
-var promise = $.getJSON(fullUrl)
+
+
+
+
+
+var promise = $.getJSON(zipUrl)
 // console.log(promise)
 
 
@@ -22,7 +32,6 @@ var handleData = function(jsonData) {
 
 	var containerEl = document.querySelector('#container')
 	containerEl.innerHTML = htmlString
-	console.log(htmlString)
 
 }
 
@@ -37,6 +46,38 @@ var personToHTML = function( personObject ){
 		newPersonStringinHTML += '<div class="website" ><h3>website:</h3>' + personObject.website + '</div></div>'
 	return newPersonStringinHTML
 }
+
+
+// 						numberOfZip
+var inputEl = document.querySelector('input.zipFinder')
+// console.log(inputEl)
+
+var addItem = function(keyEvent) {
+  var targetEl = keyEvent.target
+  // console.log(targetEl)
+
+  if (keyEvent.keyCode === 13) {
+      numberOfZip = inputEl.value
+	  pathName = baseUrl + zip + apiKey
+	  
+	  function processAjaxData(pathName){
+     document.getElementById("content").innerHTML = response.html;
+  	console.log(document.getElementById("content").innerHTML)
+     
+     document.title = response.pageTitle;
+     window.history.pushState(pathName);
+ }
+
+	  console.log(pathName)
+
+  }
+}
+
+inputEl.addEventListener('keydown',addItem)
+
+// 						numberOfZip
+
+
 
 
 promise.then(handleData)
