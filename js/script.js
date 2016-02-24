@@ -54,20 +54,10 @@ var addItem = function(keyEvent) {
       numberOfZip = inputEl.value
       zipper = parseInt(numberOfZip) + '&apikey='
 	  pathName = baseUrl + 'zip=' +zipper + apiKey
-	  console.log(pathName)
-	  document.location = pathName
-
-var handleData = function(jsonData) {
-	var htmlString = ''
-	for (var i =0; i <10; i++) {
-		// console.log(jsonData[i])
-		var ligislatorObject = jsonData[i]
-		htmlString += legislatorToHTML(ligislatorObject)
-		console.log(htmlString)
-	}
-	var containerEl = document.querySelector('.container')
-	containerEl.innerHTML = htmlString
-}
+	  var promise = $.getJSON(pathName)
+	  console.log(promise)
+	  promise.then(handleData)
+	  // function that refreshes the page with the pat
 
   }
 }
