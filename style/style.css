@@ -22,7 +22,7 @@ html {
 	padding: 1%;
 	display: inline-block;
 	background-image: url("http://stockfresh.com/files/r/rcarner/m/14/1057410_stock-photo-old-looking-paper-for-a-grungy-background.jpg");
-	width: 30%;
+	/*width: 30%;*/
 	vertical-align: top;
 	margin: 1%;
 	text-overflow: hidden;
@@ -40,4 +40,10 @@ html {
 	position: absolute;
 	left: 50%;
 
+}
+
+@media screen {
+  container {
+    width: 75%;
+  }
 }
