@@ -11,11 +11,6 @@ var zip = numberZip+'&apikey='
 var fullUrl = baseUrl + apiKey
 var zipUrl =  baseUrl + zip + apiKey 
 
-
-
-
-
-
 var promise = $.getJSON(zipUrl)
 // console.log(promise)
 
@@ -48,7 +43,6 @@ var personToHTML = function( personObject ){
 }
 
 
-// 						numberOfZip
 var inputEl = document.querySelector('input.zipFinder')
 // console.log(inputEl)
 
@@ -58,25 +52,27 @@ var addItem = function(keyEvent) {
 
   if (keyEvent.keyCode === 13) {
       numberOfZip = inputEl.value
-	  pathName = baseUrl + zip + apiKey
-	  
-	  function processAjaxData(pathName){
-     document.getElementById("content").innerHTML = response.html;
-  	console.log(document.getElementById("content").innerHTML)
-     
-     document.title = response.pageTitle;
-     window.history.pushState(pathName);
- }
-
+      zipper = parseInt(numberOfZip) + '&apikey='
+	  pathName = baseUrl + 'zip=' +zipper + apiKey
 	  console.log(pathName)
+	  document.location = pathName
+
+var handleData = function(jsonData) {
+	var htmlString = ''
+	for (var i =0; i <10; i++) {
+		// console.log(jsonData[i])
+		var ligislatorObject = jsonData[i]
+		htmlString += legislatorToHTML(ligislatorObject)
+		console.log(htmlString)
+	}
+	var containerEl = document.querySelector('.container')
+	containerEl.innerHTML = htmlString
+}
 
   }
 }
 
 inputEl.addEventListener('keydown',addItem)
-
-// 						numberOfZip
-
 
 
 
