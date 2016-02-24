@@ -22,7 +22,7 @@ html {
 	padding: 1%;
 	display: inline-block;
 	background-image: url("http://stockfresh.com/files/r/rcarner/m/14/1057410_stock-photo-old-looking-paper-for-a-grungy-background.jpg");
-	/*width: 30%;*/
+	width: 30%;
 	vertical-align: top;
 	margin: 1%;
 	text-overflow: hidden;
@@ -42,8 +42,11 @@ html {
 
 }
 
-@media screen {
-  container {
-    width: 75%;
+@media screen and (max-width: 768px) {
+
+  .mobster {
+
+  	display: block;
+    width: 80%;
   }
 }
