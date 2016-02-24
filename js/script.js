@@ -30,15 +30,17 @@ var handleData = function(jsonData) {
 
 }
 
-
 var personToHTML = function( personObject ){
-	// console.log(personObject.first_name)
-	var newPersonStringinHTML = '<div class ="mobster"><div class="fullName"><h3>Name:</h3>' + personObject.first_name + '    '+personObject.last_name + '</div>'
-		newPersonStringinHTML += '<ul>'
+	var priceNum = Math.round((Math.random()*9008000)+2000)
+	var priceStr = priceNum.toString()
+
+	console.log(priceStr)
+	var newPersonStringinHTML = '<div class ="mobster"><div class="fullName"><h1>Politican For Hire:</h1>' + '<h2>' +personObject.first_name + '    '+personObject.last_name + '</h2></div>'
 		newPersonStringinHTML += '<li class="email"><h3>email:</h3>' + personObject.oc_email + '</li>'
 		newPersonStringinHTML += '<li class="party_state" ><h3>(party)state:</h3>' + '(' + personObject.party + ') ' + personObject.state + '</li>'
 		newPersonStringinHTML += '<li class="office" ><h3>office:</h3>' + personObject.office + '</li></ul>'
-		newPersonStringinHTML += '<div class="website" ><h3>website:</h3>' + personObject.website + '</div></div>'
+		newPersonStringinHTML += '<div class="website" ><h3>website:</h3>' + personObject.website + '</div>'
+		newPersonStringinHTML += '<div class="price" ><h3>Cost Per Bill:</h3> <p>' + '$'+priceNum + '</p></div></div>'
 	return newPersonStringinHTML
 }
 
